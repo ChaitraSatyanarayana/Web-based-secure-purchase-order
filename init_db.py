@@ -1,3 +1,4 @@
+//This files creates the database and tables required
 import MySQLdb
 
 db = MySQLdb.connect(host="localhost",user="root",passwd="Welcome1")
