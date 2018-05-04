@@ -1,4 +1,4 @@
-# Web-based-secure-purchase-order  ;
+
 Project Description 
 
 A secure purchase order system that allows the user to enter a purchase request and routes it (by secure email) to a supervisor for signature and then to the purchasing department.
@@ -26,7 +26,8 @@ Follow the following steps
 4)  install ‘mysql’
         
             sudo apt-get update
-      sudo apt-get install mysql-server
+       sudo apt-get install mysql-server
+       
 for configuring mydql use the below link
 https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-16-04
 
