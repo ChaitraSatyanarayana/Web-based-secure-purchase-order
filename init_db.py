@@ -1,5 +1,5 @@
-//This files creates the database and tables required
-// it creates public and private key for purchase center, supervisor and order department and stores it in database
+#This files creates the database and tables required
+#it creates public and private key for purchase center, supervisor and order department and stores it in database
 
 import MySQLdb
 import rsa
