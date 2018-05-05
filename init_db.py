@@ -25,13 +25,13 @@ cursor = db.cursor()
 cursor.execute("""Create database spo""") #create student purchase order database 
 cursor.execute("""use spo""")
 cursor.execute("""CREATE TABLE Cred (      
-    Email varchar(255),
+    EmailID varchar(255),
     Password varchar(255),
     PrivateKey varchar(5000)
     )""")        #create Cred Table
 
 cursor.execute("""CREATE TABLE PublicKeyDir (
-    Email varchar(255),
+    EmailID varchar(255),
     PublicKey varchar(5000)
     )""")       #create Public Key directory table 
 
