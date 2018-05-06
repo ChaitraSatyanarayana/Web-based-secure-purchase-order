@@ -1,5 +1,5 @@
-#This files creates the database and tables required
-#it creates public and private key for purchase center, supervisor and order department and stores it in database
+# Creates 'spo' database and tables Cred and PublicKeyDir
+#Intializes the tables with mailId , password, Public and private keys of student purchase center,supervisor and order department
 
 import MySQLdb
 import rsa
