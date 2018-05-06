@@ -1,0 +1,48 @@
+<html>
+<head>
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+</head>
+<body>
+<form action="{{ url_for('confirm_order') }}" method="post">
+ <table>
+  <tr>
+    <th>Article</th>
+    <th>Cost</th>
+    <th>Quantity</th>
+    <th>Total</th>
+  </tr>
+  <tr>
+    <td>Laptop</td>
+    <td>$800</td>
+    <td>{{ laptopq }}<br></td>
+    <td>{{ laptopt }}<br></td>
+  </tr>
+  <tr>
+    <td>Bag</td>
+    <td>$50</td>
+    <td>{{ bagq }}<br></td>
+    <td>{{ bagt }}<br></td>
+  </tr>
+  <tr>
+    <td>Book</td>
+    <td>$5</td>
+    <td>{{ bookq }}<br></td>
+    <td>{{ bookt }}<br></td>
+  </tr>
+   <tr>
+    <td>Pen</td>
+    <td>$1</td>
+    <td>{{ penq}}<br></td>
+    <td>{{ pent}}<br></td>
+  </tr>
+</table>
+    <p> Total Amount ={{ amount}}</p><br>
+    <input name="Back" type ="submit" value="Back"><input name="Confirm"type ="submit" value="Confirm">
+    
+</form> 
+</body>
+</html>
