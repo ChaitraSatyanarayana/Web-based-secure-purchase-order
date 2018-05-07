@@ -1,3 +1,4 @@
+#main functionality of the purchase center application
 from flask import Flask, request, render_template,redirect,url_for
 import MySQLdb
 import rsa 
@@ -33,15 +34,14 @@ def open_file_write(msg):
     fh.write(msg)
     fh.close()
 
-# creates content for the file attachment : encrypt(signature(hash(PO))+PO)
+# creates content for the email file attachment : encrypt(signature(hash(PO))+PO)
 def get_attachment(msg,private,public):
     global KEY_LENGTH
-    m = hashlib.md5(msg)
-    mg = m.hexdigest().encode('utf8')
-    signature = rsa.encrypt(mg,private)
+    signature = rsa.sign(msg,private,'MD5') # hash with MD5 and sign with the private key of the user
     N = 2048/8
-    crypto = rsa.encrypt(msg.encode('utf8'),public)+"SSSS"+rsa.encrypt(signature[0:N-11],public)+"SSSS"+rsa.encrypt(signature[N-10:],public)
-    return crypto 
+    # encrypt((sign(hash(PO))+PO), reciepient_public)
+    crypto = rsa.encrypt(msg.encode('utf8'),public)+"SSSS"+rsa.encrypt(signature[0:N-11],public)+"SSSS"+rsa.encrypt(signature[N-11:],public)
+    return crypto #crypted data for email attachment
    
 #process purchase and forward via mail 
 def process_po():
@@ -49,13 +49,13 @@ def process_po():
     private_user = get_privatekey(EMAIL)           #get the private key of the user for signature 
     public_supervisor = get_publickey(supervisor_mail)                     #get the public key of the supervosor
     public_orderdept = get_publickey(orderdepartment_mail)
-    crypto_supervisor = get_attachment(PO,private_user,public_supervisor)
-    crypto_orderdept = get_attachment(PO,private_user,public_orderdept)
-    open_file_write(crypto_supervisor)
-    send_email(supervisor_mail)
-    os.remove("PO.txt")
-    open_file_write(crypto_orderdept)
-    send_email(orderdepartment_mail)
+    crypto_supervisor = get_attachment(PO,private_user,public_supervisor)   #crypted data for  attachment of mail to supervisor
+    crypto_orderdept = get_attachment(PO,private_user,public_orderdept)     #crypted data for  attachment of mail to order department
+    open_file_write(crypto_supervisor)                                 #create file for attachment of mail to supervisor
+    send_email(supervisor_mail)     # send email to supervisor
+    os.remove("PO.txt")                #delete file
+    open_file_write(crypto_orderdept)      #create file for attachment of mail to order department
+    send_email(orderdepartment_mail)        # send mail to order department
     os.remove("PO.txt")
 
 @app.route('/confirm_order',methods=['POST','GET'])
@@ -93,8 +93,8 @@ def purchase_order():
         book.total = book.quantity*book.cost
         pen.total = pen.quantity*pen.cost   
         total_amount =laptop.total+bag.total+book.total+pen.total
+        #create purchase order
         PO = "Email:"+EMAIL+"\nLaptop("+str(laptop.quantity)+" no's): $"+str(laptop.total)+"\nBag("+str(bag.quantity)+" no's): $"+str(bag.total)+"\nBook("+str(book.quantity)+" no's): $"+str(book.total)+"\nPen("+str(pen.quantity)+" no's): $"+str(pen.total)+"\nTotal Amount= "+str(total_amount)
-        print PO
         return render_template('confirm_order.html',laptopt=laptop.total,bagt=bag.total,bookt=book.total,pent=pen.total,amount=total_amount,laptopq=laptop.quantity,penq=pen.quantity,bagq=bag.quantity,bookq=book.quantity)
     return render_template('purchase_order.html')
 
@@ -121,7 +121,7 @@ def verify_pw():
    global EMAIL,PW
    (db,cursor)= open_db()
    cursor.execute("""select Password from Cred where EmailID=%s""",(EMAIL,))
-   pw =cursor.fetchone()
+   pw =cursor.fetchone()              #fetch password
    close_db(db,cursor)
    if (pw==None):            #no entry in db
        return redirect(url_for('insert_data'))
@@ -134,7 +134,7 @@ def verify_pw():
 def login():
     global EMAIL,PO
     if request.method== 'POST':
-        EMAIL= request.form['EmailID']
+        EMAIL= request.form['EmailID']                   
         PW = request.form['Password']
         return redirect(url_for('verify_pw'))
     return render_template('index.html')
@@ -143,4 +143,3 @@ def login():
 if __name__ == '__main__':
     app.debug = True
     app.run()
-
