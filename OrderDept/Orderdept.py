@@ -110,25 +110,24 @@ def authenticate_PD():
         return render_template('authenticate_PD.html')
     if request.method == 'POST':
         print ("inside post file upload")
-        if(request.files and request.files['file1'] and request.files['file2']):
-            file1 = request.files['file1']
-            file2 = request.files['file2']
-            # read and upload
-            filename1 = secure_filename(file1.filename)
-            filename2 = secure_filename(file2.filename)
-            file1.save(os.path.join(app.config['UPLOAD_FOLDER'], filename1))
-            file2.save(os.path.join(app.config['UPLOAD_FOLDER'], filename2))
-
-            encryptedText1 = read_uploaded_secure_file(filename1)
-            encryptedText2 = read_uploaded_secure_file(filename2)
-            verify_status=verify(encryptedText1,encryptedText2)
-            # myfile=open("PO.txt")
-            # message=myfile.read()
-            # verify_status=verify(message,message)
-            result = ("Files " + filename1 + "\t"+" and " + filename2 + " Uploaded sucessfully")
-            return render_template('result.html',result=result,status=verify_status)
-        else:
+        if(len(request.files)!=2):
             return render_template('Bad_Upload.html')
+        file1 = request.files['file1']
+        file2 = request.files['file2']
+        # read and upload
+        filename1 = secure_filename(file1.filename)
+        filename2 = secure_filename(file2.filename)
+        file1.save(os.path.join(app.config['UPLOAD_FOLDER'], filename1))
+        file2.save(os.path.join(app.config['UPLOAD_FOLDER'], filename2))
+
+        encryptedText1 = read_uploaded_secure_file(filename1)
+        encryptedText2 = read_uploaded_secure_file(filename2)
+        verify_status=verify(encryptedText1,encryptedText2)
+        # myfile=open("PO.txt")
+        # message=myfile.read()
+        # verify_status=verify(message,message)
+        result = ("Files " + filename1 + "\t"+" and " + filename2 + " Uploaded sucessfully")
+        return render_template('result.html',result=result,status=verify_status)
 
 @app.route('/wrong_credentials', methods=['GET'])
 def wrong_credentials():
