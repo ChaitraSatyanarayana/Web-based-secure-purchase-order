@@ -1,0 +1,16 @@
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <h3>Verification Page</h3>
+    </head>
+    <body>
+        <form action="{{url_for('sendMail')}}" method = 'POST'>
+            <div class="controls">
+                <p>{{ result }}</p>
+                <p>{{ status }}</p>
+                <input type="hidden" name ="status" value={{status}}><br>
+            </div>
+                <input type ="submit" name="approve" value="Approve">
+                <input type ="submit" name="reject" value="Reject">
+        </form>
+    </body>
+</html>

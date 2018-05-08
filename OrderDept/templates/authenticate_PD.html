@@ -1,0 +1,14 @@
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+	<h3>Secure Upload Welcome Page</h3>
+	<p>You have now logged in</p>
+</head>
+<body>
+	<form id="upload-form1" action="{{url_for('authenticate_PD')}}" method = 'POST' enctype="multipart/form-data">
+		<p><b>Upload User file</b></p>
+		<p><input type="file" name="file1" multiple> </p>
+       <p><b>Upload Supervisor file</b></p>
+		<input type="file" name="file2" multiple>
+        <pre><br><input type="submit" value="Upload"></br</pre>
+    </form>
+</body>
