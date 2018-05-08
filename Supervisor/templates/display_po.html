@@ -1,0 +1,20 @@
+<html>
+<head>
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+</head>
+<body>
+<form action="{{ url_for('display_po') }}" method="post">
+<p>Purchase Order Details</p>
+<table>
+<pre>
+{{message_html}}
+</pre>    
+</table>
+<input name="Verify & Sign" type="Submit" value="Verify & Sign">
+</form> 
+</body>
+</html>

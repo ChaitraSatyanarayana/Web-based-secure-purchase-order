@@ -1,0 +1,15 @@
+<html>
+<head>
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+</head>
+<body>
+<form action="{{ url_for('confirm_order') }}" method="post">
+<p>Do you want to see the contents of the file?</p>
+<input name= "Yes" type="submit" value="Yes">  
+</form> 
+</body>
+</html>

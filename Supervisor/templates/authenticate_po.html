@@ -1,0 +1,11 @@
+<html>
+<head>
+	<h1>"You have been logged in"</h1>
+</head>
+<body>
+	<form id="upload-form" action="{{url_for('authenticate_po')}}" method = 'POST' enctype="multipart/form-data">
+		<input type="file" name="file" multiple>
+		<input type="submit" value="upload">
+	</form>
+</body>
+</html>
