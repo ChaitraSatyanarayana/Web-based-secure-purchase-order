@@ -31,4 +31,9 @@ Follow the following steps
 for configuring mydql use the below link
 https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-16-04
 
+5. Run the init_db.py to create the necessary ,database, tables and insert email, password and public-private keys of 
+supervisor,purchase department and order department.
+           python init_db.py
+
+
  
