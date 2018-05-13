@@ -1,12 +1,19 @@
 <html>
 <body>
+<link 	rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
 <form action="{{ url_for('login') }}" method="post">
-<h1>"SJSU STUDENT CENTER PURCHASE"</h1>
-Email ID:
-<input type="text" name ="EmailID" ><br>
-Password:
-<input type="password" name ="Password"><br>
-<input type ="submit" value="Submit">
+<center><h1>SJSU STUDENT CENTER PURCHASE</h1></center>
+<br>
+<br>
+<br>
+<br>
+<center><img src="/static/login.png" width="150" height="150"></center>
+<br>
+<center><p><b>Email ID:</b><input type="text" name ="EmailID" style="border-style: solid;border-color:white" ></p></center>
+<br>
+<center><p><b>Password:</b><input type="password" name ="Password" style="border-style: solid;border-color:white"></p></center>
+<br>
+<center><input type ="submit" value="LogIn"style="border-style: solid;"></center>
 </form>
 </body>
 </html>
