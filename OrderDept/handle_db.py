@@ -4,7 +4,7 @@ import rsa
 
 
 def open_db():
-    db = MySQLdb.connect(host="c7001", user="root", passwd="Passw0rd!", db="spo")  # connect to db
+    db = MySQLdb.connect(host="localhost", user="root", passwd="Welcome1", db="spo")  # connect to db
     # prepare a cursor object
     cursor = db.cursor()
     return (db, cursor)

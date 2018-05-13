@@ -1,14 +1,8 @@
-# THE actual email ID s  that were created are removed for safety sake.
-#Please replace it with purchase center, supervisor and order department mail IDs and password
+purchasecenter_mail = "studentpurchasecenter@gmail.com"
+purchasecenter_password = "spc@cmpe209"
 
-purchasecenter_mail = "pppp@gmail.com"
-purchasecenter_password = "pppp"
+supervisor_mail = "supervisor.spcenter@gmail.com"
+supervisor_password = "supervisor@cmpe209"
 
-supervisor_mail = "sssss@gmail.com"
-supervisor_password = "ssss"
-
-orderdepartment_mail ="oooo@gmail.com"
-orderdepartment_password ="oooo@cmpe209"
-
-
-	
+orderdepartment_mail ="orderdepartment.spcenter@gmail.com"
+orderdepartment_password ="orderdepartment@cmpe209"

@@ -8,7 +8,7 @@ from handle_db import *
 from email_credentials import *
 from handle_email import *
 
-UPLOAD_FOLDER = '/Users/narendrabidari/Desktop/cmpe 209/Project'
+UPLOAD_FOLDER = '/Users/Chaitra/Desktop/cmpe 209/Project'
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png'])
 
 app = Flask(__name__)

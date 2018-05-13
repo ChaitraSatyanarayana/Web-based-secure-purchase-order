@@ -4,11 +4,15 @@
 	<p>You have now logged in</p>
 </head>
 <body>
+       <link 	rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+       <center><h1>SJSU STUDENT CENTER PURCHASE</h1></center>
+       
 	<form id="upload-form1" action="{{url_for('authenticate_PD')}}" method = 'POST' enctype="multipart/form-data">
-		<p><b>Upload User file</b></p>
-		<p><input type="file" name="file1" multiple> </p>
-       <p><b>Upload Supervisor file</b></p>
-		<input type="file" name="file2" multiple>
-        <pre><br><input type="submit" value="Upload"></br</pre>
+		<center><p><b>Upload User file</b></p></center>
+                <br>
+		<center><p><input type="file" name="file1" multiple> </p></center>
+       <center><p><b>Upload Supervisor file</b></p></center>
+		<center><input type="file" name="file2" multiple></center>
+        <center><pre><br><input type="submit" value="Upload"></br></pre></center>
     </form>
 </body>

@@ -3,14 +3,16 @@
         <h3>Verification Page</h3>
     </head>
     <body>
+      <link 	rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+       <center><h1>SJSU STUDENT CENTER PURCHASE</h1></center>
         <form action="{{url_for('sendMail')}}" method = 'POST'>
             <div class="controls">
-                <p>{{ result }}</p>
-                <p>{{ status }}</p>
+                <center><p>{{ result }}</p>
+                <center><p>{{ status }}</p>
                 <input type="hidden" name ="status" value={{status}}><br>
             </div>
-                <input type ="submit" name="approve" value="Approve">
-                <input type ="submit" name="reject" value="Reject">
+                <center><input type ="submit" name="approve" value="Approve">
+                <center><input type ="submit" name="reject" value="Reject">
         </form>
     </body>
 </html>
