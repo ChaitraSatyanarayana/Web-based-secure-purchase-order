@@ -73,9 +73,6 @@ def decrypt(encryptedText):
         index,signText = 1,""
         for index in range(index,(len(list))):
             signText += rsa.decrypt(list[index], privateKey)
-        # sign1 = rsa.decrypt(list[1], privateKey)
-        # sign2 = rsa.decrypt(list[2], privateKey)
-        # signText = sign1 + sign2
         return POtext, signText
 
 #  Check verification (decrypt,sign)
@@ -125,9 +122,6 @@ def authenticate_PD():
         encryptedText1 = read_uploaded_secure_file(filename1)
         encryptedText2 = read_uploaded_secure_file(filename2)
         verify_status=verify(encryptedText1,encryptedText2)
-        # myfile=open("PO.txt")
-        # message=myfile.read()
-        # verify_status=verify(message,message)
         result = ("Files " + filename1 + "\t"+" and " + filename2 + " Uploaded sucessfully")
         return render_template('result.html',result=result,status=verify_status)
 
