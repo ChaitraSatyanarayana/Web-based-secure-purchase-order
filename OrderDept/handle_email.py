@@ -16,9 +16,9 @@ def send_email(toaddr,status):
     msg['Subject'] = "[secure] Approval Status"
 
     if(status=="Verified"):
-        body = "Congratulations!" +"\n" +"You order has been Approved "
+        body = "Dear User," +"\n" +"You order has been Confirmed and Approved "
     else:
-        body= " Unfortunately your order has been cancelled due to Authentication failure " +"\n"+ "Please Login to Website and Purchase the items again "
+        body= "Dear User"+"\n" + " Unfortunately your order has been cancelled due to Authentication failure " +"\n"+ "Please Login to Website and Purchase the items again "
 
     msg.attach(MIMEText(body, 'plain'))
 
