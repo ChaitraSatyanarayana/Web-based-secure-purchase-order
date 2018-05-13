@@ -3,11 +3,24 @@
 <style>
 table, th, td {
     border: 1px solid black;
+    border-color:white;
+    color:white;
+    
+}
+
+th,td{
+   font-size:150%;
 }
 </style>
 </head>
 <body>
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
 <form action="{{ url_for('purchase_order') }}" method="post">
+<center><h1>SJSU STUDENT CENTER PURCHASE</h1></center>
+<center>
+<br>
+<br>
+<br>
  <table>
   <tr>
     <th>Article</th>
@@ -35,6 +48,8 @@ table, th, td {
     <th><input type="number" name="penq" min="0" max="20" value="0"><br></th>
   </tr>
 </table>
+    <br>
+    <br>
     <input type ="submit" value="Buy">
 </form> 
 </body>
