@@ -7,14 +7,20 @@ table, th, td {
 </style>
 </head>
 <body>
+<center><h1> SJSU STUDENT PURCHASE CENTER </h1></center>
+<br>
+<br>
+<br>
 <form action="{{ url_for('display_po') }}" method="post">
-<p>Purchase Order Details</p>
+<center><p>Purchase Order Details</p></center>
+<center>
 <table>
 <pre>
 {{message_html}}
 </pre>    
+</center>
 </table>
-<input name="Verify & Sign" type="Submit" value="Verify & Sign">
+<center><input name="Verify & Sign" type="Submit" value="Verify & Sign"></center>
 </form> 
 </body>
 </html>

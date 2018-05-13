@@ -6,7 +6,6 @@ import os
 import rsa
 import cPickle as pickle
 from werkzeug import secure_filename
-from articles import article
 from email_credentials import *
 from handle_email import *
 from handle_db import *
@@ -14,7 +13,7 @@ import os
 import hashlib
 import sys 
 
-UPLOAD_FOLDER = '/home/nischala/Documents/Project/Supervisor'
+UPLOAD_FOLDER = '/home/chaitra/Desktop/209/Supervisor' #'/home/nischala/Documents/Project/Supervisor'
 ALLOWED_EXTENSIONS = set(['txt','pdf','png'])
 
 #Global variables

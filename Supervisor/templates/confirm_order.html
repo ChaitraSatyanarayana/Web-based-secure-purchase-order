@@ -3,13 +3,22 @@
 <style>
 table, th, td {
     border: 1px solid black;
+    border-color:white;
+    color:white;
+    
+}
+
+th,td{
+   font-size:150%;
 }
 </style>
 </head>
 <body>
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+<center><h1> SJSU PURCHASE CENTER </h1></center>
 <form action="{{ url_for('confirm_order') }}" method="post">
-<p>Do you want to see the contents of the file?</p>
-<input name= "Yes" type="submit" value="Yes">  
+<center><h3>Press below to view the Purchase Order</h3></center>
+<center><input name= "Yes" type="submit" value="View"></center>
 </form> 
 </body>
 </html>
