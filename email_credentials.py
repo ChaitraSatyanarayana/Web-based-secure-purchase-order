@@ -1,3 +1,6 @@
+# THE actual email ID s  that were created are removed for safety sake.
+#Please replace it with purchase center, supervisor and order department mail IDs and password
+
 purchasecenter_mail = "pppp@gmail.com"
 purchasecenter_password = "pppp"
 
