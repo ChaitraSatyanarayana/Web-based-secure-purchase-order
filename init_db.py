@@ -1,6 +1,3 @@
-# Creates 'spo' database and tables Cred and PublicKeyDir
-#Intializes the tables with mailId , password, Public and private keys of student purchase center,supervisor and order department
-
 import MySQLdb
 import rsa
 from email_credentials import *
@@ -11,14 +8,14 @@ def create_keys(email,pw):
      public_str = pickle.dumps(public)
      private_str = pickle.dumps(private)
      db = MySQLdb.connect(host="localhost",user="root",passwd="Welcome1")
-     cursor = db.cursor() 
+     cursor = db.cursor()
      cursor.execute("""use spo""")
      cursor.execute("""INSERT INTO Cred VALUES (%s,%s,%s)""",(email,pw,private_str))    #insert credentials
      db.commit()
      cursor.execute("""INSERT INTO PublicKeyDir VALUES (%s,%s)""",(email,public_str))         #insert public key in public key directory 
      db.commit()
      cursor.close()
-     db.close()
+     db.close() 
 
 db = MySQLdb.connect(host="localhost",user="root",passwd="Welcome1")
 cursor = db.cursor()
@@ -40,3 +37,4 @@ create_keys(supervisor_mail,supervisor_password)   #create keys for supervisor a
 create_keys(orderdepartment_mail,orderdepartment_password)                   #create keys for order department and store it in database 
 cursor.close()
 db.close()
+
