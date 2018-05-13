@@ -20,7 +20,7 @@ def send_email(toaddr):
     msg.attach(MIMEText(body, 'plain'))
  
     filename = "PO.txt"
-    attachment = open("/home/chaitra/Desktop/209/user/PO.txt", "rb")
+    attachment = open("/home/chaitra/Desktop/209/purchase_center/PO.txt", "rb")
  
     part = MIMEBase('application', 'octet-stream')
     part.set_payload((attachment).read())
